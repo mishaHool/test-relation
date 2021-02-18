@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Man extends Model
+class Mechanic extends Model
 {
     use HasFactory;
-    function phone(){
-        return $this->hasOne(Phone::class, 'phones_id');
+    function getOwner(){
+        return $this->hasOneThrough(Owner::class, Car::class, 'mech_id');
     }
 }

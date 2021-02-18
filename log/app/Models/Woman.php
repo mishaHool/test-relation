@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Man extends Model
+class Woman extends Model
 {
     use HasFactory;
-    function phone(){
-        return $this->hasOne(Phone::class, 'phones_id');
+    function roles(){
+        return $this->belongsToMany(Role::class, 'role_woman', 'product_id', 'category_id');
     }
+
 }

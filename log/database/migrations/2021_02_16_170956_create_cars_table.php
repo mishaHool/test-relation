@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeCollumnNamePrime extends Migration
+class CreateCarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class ChangeCollumnNamePrime extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-        
-            // $table->foreign('name')->references('name_prime')->on('comments');
-        });    }
+        Schema::create('cars', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('model');
+            $table->unsignedBigInteger('mech_id');
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -25,8 +28,6 @@ class ChangeCollumnNamePrime extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            // $table->dropForeign(['name']);
-        });
+        Schema::dropIfExists('cars');
     }
 }

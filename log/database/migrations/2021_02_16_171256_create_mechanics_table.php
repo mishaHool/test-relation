@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenTable extends Migration
+class CreateMechanicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateMenTable extends Migration
      */
     public function up()
     {
-        Schema::create('men', function (Blueprint $table) {
+        Schema::create('mechanics', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name_surname');
+            $table->string('name');
+
         });
     }
 
@@ -27,6 +28,6 @@ class CreateMenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mans');
+        Schema::dropIfExists('mechanics');
     }
 }
